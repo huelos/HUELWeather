@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<style type="text/css">
+.left_span{
+	margin-left:5%;
+	width:20%;
+}
+.right_span{
+	margin-right:5%;
+	width:10%;
+}
+</style>
+    
+</head>
+<body>
+<center><h1>财大天气实时通</h1></center>
+<div id="content" style="margin-left:15%;width:70%;">
+	<center><span class="left_span">PM10:</span><span id="pm10" class="right_span"></span></center><br>
+	<center><span class="left_span">温度:</span><span id="temp" class="right_span"></span></center><br>
+	<center><span class="left_span">湿度:</span><span id="moisture" class="right_span"></span></center><br>
+	<center><span class="left_span">风速:</span><span id="windspeed" class="right_span"></span></center><br>
+	<center><span class="left_span">风向:</span><span id="winddir" class="right_span"></span></center><br>
+
+
+</div>
+
+<script>
+      var socket =  io();
+	  socket.on('wealther', function(msg){
+	  	// $('#content').innerHTML(msg);
+        $('#windspeed').text(msg->windspeed);
+        $('#pm10').text(msg.pm10);
+        $('#temp').text(msg.temp);
+        $('#moisture').text(msg.moisture);
+        $('#winddir').text(msg.winddir);
+        });  
+             
+ </script>
+</body>
+</html>
