@@ -7,10 +7,12 @@
 .left_span{
 	margin-left:5%;
 	width:20%;
+	text-align: center;
 }
 .right_span{
 	margin-right:5%;
 	width:10%;
+	text-align: center;
 }
 </style>
     
@@ -18,25 +20,25 @@
 <body>
 <center><h1>财大天气实时通</h1></center>
 <div id="content" style="margin-left:15%;width:70%;">
-	<center><span class="left_span">PM10:</span><span id="pm10" class="right_span"></span></center><br>
-	<center><span class="left_span">温度:</span><span id="temp" class="right_span"></span></center><br>
-	<center><span class="left_span">湿度:</span><span id="moisture" class="right_span"></span></center><br>
-	<center><span class="left_span">风速:</span><span id="windspeed" class="right_span"></span></center><br>
-	<center><span class="left_span">风向:</span><span id="winddir" class="right_span"></span></center><br>
+	<center><span class="left_span">PM10:</span>&nbsp;&nbsp;<span id="pm10" class="right_span"></span></center>
+	<center><span class="left_span">温度:</span>&nbsp;&nbsp;<span id="temp" class="right_span"></span><span></span></center>
+	<center><span class="left_span">湿度:</span>&nbsp;&nbsp;<span id="moisture" class="right_span"></span></center>
+	<center><span class="left_span">风速:</span>&nbsp;&nbsp;<span id="windspeed" class="right_span"></span></center>
+	<center><span class="left_span">风向:</span>&nbsp;&nbsp;<span id="winddir" class="right_span"></span></center>
 
 
 </div>
 
 <script>
-      var socket =  io();
-	  socket.on('wealther', function(msg){
-	  	// $('#content').innerHTML(msg);
-        $('#windspeed').text(msg->windspeed);
-        $('#pm10').text(msg.pm10);
-        $('#temp').text(msg.temp);
-        $('#moisture').text(msg.moisture);
-        $('#winddir').text(msg.winddir);
-        });  
+    var socket =  io();
+	socket.on('weather', function(windspeed,temp,winddir,pm10,moisture){
+	  	
+        $('#windspeed').text(windspeed+"mg/m3");
+        $('#pm10').text(pm10+"&#8451;");
+        $('#temp').text(temp+"0.1%RH");
+        $('#moisture').text(moisture+"m/s");
+        $('#winddir').text(winddir+"&#176;");
+    });  
              
  </script>
 </body>
