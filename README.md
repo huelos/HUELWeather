@@ -7,4 +7,4 @@ Express<br>
 Socket.io
 
 ###使用方法：
-首先要安装Node.js，安装之后下载代码，然后在代码根目录运行`npm install`安装三方库，等待安装完成后执行`node index.js`
+首先要安装Node.js，安装之后下载代码，然后在代码根目录运行`npm install`安装三方库，等待安装完成后执行`node index.js` 。之后进入浏览器输入localhost:3000回车即可。
