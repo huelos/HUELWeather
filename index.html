@@ -20,11 +20,11 @@
 <body>
 <center><h1>财大天气实时通</h1></center>
 <div id="content" style="margin-left:15%;width:70%;">
-	<center><span class="left_span">PM10:</span>&nbsp;&nbsp;<span id="pm10" class="right_span"></span></center>
-	<center><span class="left_span">温度:</span>&nbsp;&nbsp;<span id="temp" class="right_span"></span><span></span></center>
-	<center><span class="left_span">湿度:</span>&nbsp;&nbsp;<span id="moisture" class="right_span"></span></center>
-	<center><span class="left_span">风速:</span>&nbsp;&nbsp;<span id="windspeed" class="right_span"></span></center>
-	<center><span class="left_span">风向:</span>&nbsp;&nbsp;<span id="winddir" class="right_span"></span></center>
+	<center><span class="left_span">PM10:</span>&nbsp;&nbsp;<span id="pm10"></span><span class="right_span">mg/m3</span></center>
+	<center><span class="left_span">温度:</span>&nbsp;&nbsp;<span id="temp"></span><span class="right_span">&#8451;</span></center>
+	<center><span class="left_span">湿度:</span>&nbsp;&nbsp;<span id="moisture"></span><span class="right_span">%RH</span></center>
+	<center><span class="left_span">风速:</span>&nbsp;&nbsp;<span id="windspeed"></span><span class="right_span">m/s</span></center>
+	<center><span class="left_span">风向:</span>&nbsp;&nbsp;<span id="winddir"></span><span class="right_span">&#176;</span></center>
 
 
 </div>
@@ -33,11 +33,11 @@
     var socket =  io();
 	socket.on('weather', function(windspeed,temp,winddir,pm10,moisture){
 	  	
-        $('#windspeed').text(windspeed+"mg/m3");
-        $('#pm10').text(pm10+"&#8451;");
-        $('#temp').text(temp+"0.1%RH");
-        $('#moisture').text(moisture+"m/s");
-        $('#winddir').text(winddir+"&#176;");
+        $('#windspeed').text(windspeed+" ");
+        $('#pm10').text(pm10+" ");
+        $('#temp').text(temp+" ");
+        $('#moisture').text(moisture+" ");
+        $('#winddir').text(winddir+" ");
     });  
              
  </script>
